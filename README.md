@@ -56,7 +56,7 @@ Build a relative set of skills which will I be able to selectively produce, list
 <br>
 </br>
 <p>
-  <a href="https://www.linkedin.com/in/bino-tuliao-65b994192/" rel="nofollow noreferrer">
+  <a href="https://www.linkedin.com/in/binoootuliao/" rel="nofollow noreferrer">
     <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
   </a> &nbsp; 
   <a href="https://github.com/melbinoooo" rel="nofollow noreferrer">

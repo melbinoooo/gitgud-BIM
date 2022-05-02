@@ -1,11 +1,18 @@
 # 01-gitgud-BIM-Learn-ISO-19650-Part-1
 
 Archive Now: No
+
 Category: gitgud-BIM
+
 Date Created: May 1, 2022 4:38 PM
+
 Last Edited Time: May 2, 2022 7:58 PM
+
 Priority: Priority: High 🔥
+
 Status: Work in Progress
+<br>
+</br>
 
 # To-do
 
@@ -131,6 +138,8 @@ Information Management during the delivery phase of assets.
 
 ---
 
+<br>
+</br>
 Sources: 
 
 [UK BIM Framework – BIM Standards, Guides & Resources](https://www.ukbimframework.org/resources/)

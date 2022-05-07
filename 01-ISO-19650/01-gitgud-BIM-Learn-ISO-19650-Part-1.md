@@ -64,7 +64,7 @@ Read ISO-19650
     2. The provider of information.
     3. The delivery team(s), task team(s).
 
-![Figure 1.0](01-gitgud-BIM-Learn-ISO-19650-Part-1/Untitled_Diagram.drawio_(2).png)
+![Figure 1.0](Diagrams-and-Images/Figure-01.png)
 
 Figure 1.0
 
@@ -92,25 +92,25 @@ Information Management during the delivery phase of assets.
 2. **Initiation/Invitation to Tender**
     1. Based on what the owner needs, they will now send out a bidding request.
 
-1. **Tender Response**
+3. **Tender Response**
     1. Based on what the Invitation to Tender details is, we write out a proposal on how are we going to approach the requirements.
     
-2. **Appointment**
+4. **Appointment**
     1. Once we, or a specific BIM company is selected, the company will now prepare a detailed timeline and milestones to accomplished the requirement of the project, which then will be announced to the owner and the team.
     
-3. **Mobilization**
+5. **Mobilization**
     1. The lead appointed party (the one who wins the bidding), will now delegate a detailed tasks to its organization.
     2. and appoint and internal team which will be doing the specific tasks as required.
     
-4. **Collaborative Production and Information**
+6. **Collaborative Production and Information**
     1. the appointed team must and should collaborate within its own layer of structured working environment.
         1. Manager → Modeler → Checker → Revisions → Approval → Archiving. 
         
-5. **Information Model Delivery**
+7. **Information Model Delivery**
     1. The Appointing Party (a.k.a Owner) will review the published information models if it qualifies based on the asking set of requirements.
     2. The owner will then decide if the Information Models were approved or rejected.
     
-6. **Project Close-Out & Asset Information Model (AIM) Aggregation**
+8. **Project Close-Out & Asset Information Model (AIM) Aggregation**
     1. Once the assets are approved, and all the required set of requirements are met.
     2. The Information will now be then archived and aggregated into the ***asset information model***, for the on going operation and maintenance of the assets.
     
@@ -119,10 +119,39 @@ Information Management during the delivery phase of assets.
 
 ---
 
-## PIM (Project Information Model) // *The Specific Requirements*
+
+<p>&nbsp;</p>
+
+---
+
+## **Overview of The Information Delivery Cycle**
+
+   - ***1ST*** - THE APPOINTING PARTY (client, owner, others)
+      - Will Produce a list(s) or statement(s) of need, stating an assurance of information requirements.
+      - Will define how the concepts and principles of infomration management are going to be implemented and lists of the benefits to be expected.
+      - Will confirms the types of information and request a clarification on how the "different types" of information will be structured and be exchanged.
+      - IT IS IMPORTANT FOR THE CLIENT (APPOINTING PARTY) TO EXPLAIN THE PRINCIPAL REASONS WHY BIM IS REQUIRED. As it will greatly help give an additional context to the project delivery team(s) later on.
+
+<p>&nbsp;</p>
+
+  - ***2ND*** - Prospective LEAD PARTY (contractor, designer, architect, others.)
+    - Will respond to the Appointing Party's Information requirements through their (pre-appointment) BIM execution plan, which includes their list(s) or statement(s) of capability and capacity to apply the ISO 19650 series.
+<p>&nbsp;</p>
+
+-   ***3RD*** - Appointment
+    -   The Appointing Party (client) will consider the BIM Execution Plan 
+
+---
+
+<br>
+</br>
+
+
+## **PIM (Project Information Model) // *The Specific Requirements***
 
 - A specific Model Information required by the Appointing Party (Owner)
 - Could be in a form of: 3D Models, databases, spreadsheets and other documentation materials.
+<p>&nbsp;</p>
 
 ## **AIM (Asset Information Model) // *The Overall Requirements***
 
@@ -130,26 +159,12 @@ Information Management during the delivery phase of assets.
 - Provides all information required to perform the AEC Operations.
 - AIM can include: Graphical Models, non-graphical data, necessary documentations.
     - unnecessary data = put to achieved.
-    
 
-<br>
-</br>
+<p>&nbsp;</p>
 
 ---
 
-## **Overview of The Information Delivery Cycle**
-
-   - The client (appointing party)
-      - Will Produce a list(s) or statement(s) of need, stating an assurance of information requirements.
-      - Will define how the concepts and principles of infomration management are going to be implemented and lists of the benefits to be expected.
-      - Will confirms the types of information and request a clarification on how the "different types" of information will be structured and be exchanged.
-      - IT IS IMPORTANT FOR THE CLIENT (APPOINTING PARTY) TO EXPLAIN THE PRINCIPAL REASONS WHY BIM IS REQUIRED. As it will greatly help give an additional context to the project delivery team(s).
-
-
 ---
-
-<br>
-</br>
 Sources: 
 
 [UK BIM Framework – BIM Standards, Guides & Resources](https://www.ukbimframework.org/resources/)

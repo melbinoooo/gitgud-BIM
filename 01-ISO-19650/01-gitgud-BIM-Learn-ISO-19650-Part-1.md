@@ -8,6 +8,8 @@ Date Created: May 1, 2022 4:38 PM
 
 Last Edited Time: May 2, 2022 7:58 PM
 
+
+
 Priority: Priority: High 🔥
 
 Status: Work in Progress
@@ -130,11 +132,19 @@ Information Management during the delivery phase of assets.
     - unnecessary data = put to achieved.
     
 
+<br>
+</br>
+
 ---
 
-## Overview of The Information Delivery Cycle
+## **Overview of The Information Delivery Cycle**
 
-//todo
+   - The client (appointing party)
+      - Will Produce a list(s) or statement(s) of need, stating an assurance of information requirements.
+      - Will define how the concepts and principles of infomration management are going to be implemented and lists of the benefits to be expected.
+      - Will confirms the types of information and request a clarification on how the "different types" of information will be structured and be exchanged.
+      - IT IS IMPORTANT FOR THE CLIENT (APPOINTING PARTY) TO EXPLAIN THE PRINCIPAL REASONS WHY BIM IS REQUIRED. As it will greatly help give an additional context to the project delivery team(s).
+
 
 ---
 

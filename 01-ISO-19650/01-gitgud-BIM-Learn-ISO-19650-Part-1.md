@@ -6,7 +6,7 @@ Category: gitgud-BIM
 
 Date Created: May 1, 2022 4:38 PM
 
-Last Edited Time: May 2, 2022 7:58 PM
+Last Edited Time: May 7, 2022 9:40 PM
 
 
 
@@ -23,9 +23,8 @@ Read ISO-19650
 - [ ]  **Part 1 - Concepts & Principles**
     - [x]  Who participates
     - [x]  8 General Steps
-    - [ ]  The Information Delivery Cycle
-    - [ ]  Information Requirements
-    - [ ]  Responsibility Matrices
+    - [x]  The Information Delivery Cycle
+    - [x]  Information Requirements
     - [ ]  Collaborative Information Environment
         - [ ]  CDE (Common Data Environment)
     - [ ]  Use of Metadata
@@ -139,12 +138,30 @@ Information Management during the delivery phase of assets.
 <p>&nbsp;</p>
 
 -   ***3RD*** - Appointment
-    -   The Appointing Party (client) will consider the BIM Execution Plan 
+    -   The Appointing Party (client) will consider the contents of all BIM Execution Plan submitted by the Lead Appointed Party or Parties.
+<p>&nbsp;</p>
+
+-   ***4TH*** - Mobilization & Collaborative Production
+    -   During the mobilization: The Appointing Party, The Lead Appointed Party or Parties and each of their own internal Appointed Party/Parties, will collaborate to agree on Key roles and Responsibilities and to agree to an ***Information Delivery Plan*** in the form of the *[following list]*, that will  outlines coordination and delivery procedures.
+        -   1. BIM Execution Plan
+        -   2. The Master Information Delivery Plan
+        -   3. Task Information Delivery Plans  
+    - Briefings and Training will also be required to ensure everyone has an agreed level of competency and understanding about the project requirements.
+<p>&nbsp;</p>
+
+-   ***5TH*** - Information Delivery
+    -   All Parties involved to the production of the information models will  establish the level of information required AT ***every project stage*** and approval.
+    -   These made Information systems will provide and consider the needs of the project team and stakeholders.
+    -   These made information systems will also entails the selection and use of appropriate technologies required for each delivery phases or in totality.
+    -   At the end of every project stage, assurance will be provided that the information requirements have been met appropriately.
+        -   This will be done through manual and automated methods.
+        -   The Relevant Asset Informations will be handed over at completion to inform the operation and maintenance.
+<p>&nbsp;</p>
 
 ---
 
-<br>
-</br>
+---
+
 
 
 ## **PIM (Project Information Model) // *The Specific Requirements***
@@ -163,7 +180,25 @@ Information Management during the delivery phase of assets.
 <p>&nbsp;</p>
 
 ---
+---
+<br></br>
+## ***Four Key Documents that establishes the Appointing Party's Information Requirements***
+-   **OIR** - ORGANIZATIONAL Information Requirements
+    -   Relations to organizational objectives.
+-   **PIR** - PROJECT Information Requirements
+    -   Relations to Purpose, Design and Construction of assets.
+-   **AIR** - ASSET Information Requirements
+    -   Relations to the operation and maintenance of an asset/s.
+-   **EIR** - EXCHANGE Information Requirements
+    -   Relations to an appointment.
 
+
+
+
+
+
+<br></br>
+---
 ---
 Sources: 
 

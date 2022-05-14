@@ -42,3 +42,16 @@ print(last_name)
 
 
 
+#----------------------------------------#
+
+# PART 4
+# Boolean: True or False | Case to case basis.
+# Boolean or "bool" basically determines if the expression used is either true or false.
+# In this example, we made a new variable called "d" which contains both the value of variable "a" and "b", however in this case we added an expression which determines of a is greater than b.
+
+d = a > b
+print(bool (d))
+
+# at the command line - it prints out a "False" value for the variable "d".
+
+

@@ -4,7 +4,7 @@ Category: gitgud-BIM-Python
 
 Date Created: May 7, 2022 10:22 PM
 
-Last Edited Time: May 7, 2022 10:36 PM
+Last Edited Time: May 29, 2022 6:42 PM
 
 Priority: Priority: High 🔥
 
@@ -32,12 +32,12 @@ Build a necessary foundation for Python Language to help prepare, construct and 
 
 # Targets:
 
-- [ ]  INTRODUCTION TO PYTHON
+- [x]  INTRODUCTION TO PYTHON
     - Variables and Literals
     - Inpit and Output
     - Type Conversion
     - Operators
-- [ ]  DECISION MAKING & LOOP
+- [x]  DECISION MAKING & LOOP
     - Boolean Expression
     - If...Else Statement
     - While Loop

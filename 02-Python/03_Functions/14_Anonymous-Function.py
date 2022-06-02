@@ -7,6 +7,7 @@
 
 
 #----------------------------------------#
+
 # Part 1: Lambda Function
 
 square = lambda n: n*n # This is a lambda function
@@ -21,6 +22,8 @@ print(result) # This is the print statement
 
 
 # The above program is equivalent to:
+
+
 
 
 def n_square(x): # This is a defined function

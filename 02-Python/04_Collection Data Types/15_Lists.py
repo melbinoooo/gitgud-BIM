@@ -66,7 +66,7 @@ print(sample_to_change) # This prints [25, 45, 65, 85]
 
 
 #----------------------------------------#
-# Part 6: Adding Elements to a lists
+# Part 6: Adding & Deleting Elements in a lists
 
 
 # Adding a single value to a lists using "(list_name).append"
@@ -84,3 +84,40 @@ sample_list_2 = [44, 55, 66, 77]
 
 sample_list_1.extend(sample_list_2)
 print(sample_list_1) # sample_list_1 now prints [11, 22, 33, 44, 55, 66, 77]
+
+
+# Deleting a lists value using "del (list_name)[index]"
+
+sample_list_delete = [1, 2, 3, 10]
+del sample_list_delete[-1]
+print(sample_list_delete) # This only prints [1, 2, 3]
+
+
+
+#----------------------------------------#
+# Part 7: Using pop on a list.
+
+# sample_list_1 = [11, 22, 33]
+# sample_list_2 = [44, 55, 66, 77]
+
+# sample_list_1.extend(sample_list_2)
+print(sample_list_1.pop()) # This prints only the "77" if the index is not stated.
+# Recommended for printing out he last value in the list quickly.
+
+
+
+
+
+#----------------------------------------#
+# Part 8: Python List Methods
+
+# 1. .append() - Add a value to a list.
+# 2. .extend() - Add the value of a list into a list
+# 3. .insert() - Insert a value at a given index.
+# 4. .remove() - Remove a value in a list at a given index.
+# 5. .pop() - Realize a value in a list based on a given index.
+# 6. .clear() - Remove all value in a list.
+# 7. .copy() - Return a shallow copy of the list.
+
+
+

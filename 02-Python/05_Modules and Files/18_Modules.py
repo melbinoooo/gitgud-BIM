@@ -6,4 +6,10 @@
 
 #----------------------------------------#
 # Part 1: Creating and Importing Modules
-# We are using 19_Sample-Modle.py
+# We are using 19_Sample-Module.py
+
+
+
+#----------------------------------------#
+# Part 2: Importing 19_Sample-Module.py
+

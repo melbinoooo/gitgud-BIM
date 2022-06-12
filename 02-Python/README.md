@@ -4,11 +4,11 @@ Category: gitgud-BIM-Python
 
 Date Created: May 7, 2022 10:22 PM
 
-Last Edited Time: May 29, 2022 6:42 PM
+Last Edited Time: June 12, 2022 10:25 AM
 
 Priority: Priority: High 🔥
 
-Status: Work in Progress
+Status: Completed
 
 
 <br>
@@ -45,35 +45,26 @@ Build a necessary foundation for Python Language to help prepare, construct and 
     - Break and Continue
     - Pass
     - Control Flow
-- [ ]  FUNCTIONS
+- [x]  FUNCTIONS
     - What is a function?
     - Variable Scope and Lifetime
     - Function Arguments
     - Anonymous Function
     - Recursion
-- [ ]  COLLECTION DATA TYPES
+- [x]  COLLECTION DATA TYPES
     - Lists
-    - TUples
-    - Strings
     - Sets
     - Dictionary
-- [ ]  MODULES AND FILES
+- [x]  MODULES AND FILES
     - What are Modules?
     - What are Files?
     - Directory
-- [ ]  EXCEPTION HANDLING
-    - What is Exception?
-    - Exception Handling
-    - Building a Custom Exception
-- [ ]  (OOP) - OBJECT ORITENTED PROGRAMMING
+- [x]  (OOP) - OBJECT ORITENTED PROGRAMMING
     - Class and Objects
     - Constructors
     - Inheritance
-    - Namespaces
 - [ ]  LEARNING PROJECTS
-    - Binary Search
-    - Calculator
-    - //todo: add more.
+    - 
 
 <br>
 </br>

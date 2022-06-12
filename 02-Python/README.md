@@ -64,7 +64,7 @@ Build a necessary foundation for Python Language to help prepare, construct and 
     - Constructors
     - Inheritance
 - [ ]  LEARNING PROJECTS
-    - Python Wireframe Renderer (using libraries: Numpy & Pygame) 
+    - Python Wireframe Visualizer (using libraries: Numpy & Pygame) 
 
 <br>
 </br>

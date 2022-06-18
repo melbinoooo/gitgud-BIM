@@ -41,6 +41,12 @@ def rotate_x(a):
         [0,0,0,1]
     ])
     
+def rotate_y(a):
+    return np.array([
+        # Todo: Add entries
+    ])
+    
+    
 def rotate_z(a):
     return np.array([
         [math.cos(a), math.sin(a),0,0]

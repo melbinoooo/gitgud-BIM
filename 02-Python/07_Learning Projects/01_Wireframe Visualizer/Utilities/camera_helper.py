@@ -1,8 +1,9 @@
 #
 # ------------------------------
-
+import sys
+sys.path.append(".")
 import pygame as pg
-from ..Models.model_3d import *
+from Models.model_3d import *
 
 
 class Camera:

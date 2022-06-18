@@ -23,7 +23,7 @@ class Camera:
         x, y, z, w = self.position
         return np.array([
             [1,0,0,0], # X 
-            [0,1,0,0], # Y 
+            [0,1,0,1], # Y 
             [0,0,1,0], # Z 
             [-x,-y,-z,1] # WCS
         ])

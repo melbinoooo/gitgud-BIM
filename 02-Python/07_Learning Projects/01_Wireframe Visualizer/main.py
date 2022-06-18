@@ -3,6 +3,8 @@
 # ------------------------------
 import pygame as pg
 from .Models.model_3d import * # Import from Models folder the model_3d.py
+from .Utilities.camera_helper import * # Import from Utilities folder the camera_helper.py
+from .Utilities.projection_helper import * # Import from Utilities folder the projection_helper.py
 
 
 # Create Class for WireframeVisualizer ("The app")
@@ -33,6 +35,8 @@ class WireframeVisualizer:
         pg.display.flip()
         # Runtime
         self.clock.tick(self.fps)
+        # Call the model instance
+        self.model.draw()
 
     # Object for Runner
     def run(self):
@@ -47,7 +51,14 @@ class WireframeVisualizer:
     
     # Create an instance for the Model3D
     def create_models(self):
+        # Import the camera utility and Add a starting coordinate
+        self.camera = Camera(self, [0.5, 1, -4])
+        self.projection = Projection(self)
+        # Import model
         self.model = Model3D(self)
+        # Set model view / angle
+        self.model.translate([0.2,0.4,0.2])
+        self.model.rotate_y(math.pi / 6)
 
 
 # Main

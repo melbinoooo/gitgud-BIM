@@ -53,3 +53,18 @@ class Model3D:
         vertexes = vertexes @ self.render.projection.projection_matrix
         vertexes /= vertexes[:, -1].reshape(-1,1)
         vertexes[(vertexes > 1) | (vertexes < -1)] = 0
+        # Get the Projection Matrix
+        vertexes = vertexes @ self.render.projection.to_screen_matrix
+        vertexes = vertexes[:, :2]
+        
+        for face in self.faces:
+            polygon = vertexes[face] # Face Array Coordinates above
+            if not np.any((polygon == self.render.h_width) | (polygon == self.render.h_height)):
+                pg.draw.polygon(self.render.screen, pg.Color('orange'), polygon, 3)
+        
+        for vertexes in vertexes:
+            if not np.any((vertexes == self.render.h_width) | (vertexes == self.render.h_height)):
+                pg.draw.circle(self.render.screen, pg.Color('white'), vertexes, 6)
+                
+    def draw(self):
+        self.screen_projection()

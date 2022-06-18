@@ -1,10 +1,7 @@
 #
 # ------------------------------
-import sys
-sys.path.append(".")
-
 import pygame as pg
-from Utilities.matrix_helper import *
+from matrix_helper import *
 
 class Model3D:
     def __init__(self, render):
@@ -50,6 +47,9 @@ class Model3D:
     def rotate_z(self, angle):
         self.vertexes = self.vertexes @ rotate_z(angle)
         
+    def draw(self):
+        self.screen_projection()
+        
     def screen_projection(self):
         vertexes = self.vertexes @ self.render.camera.camera_matrix()
         vertexes = vertexes @ self.render.projection.projection_matrix
@@ -67,6 +67,4 @@ class Model3D:
         for vertexes in vertexes:
             if not np.any((vertexes == self.render.h_width) | (vertexes == self.render.h_height)):
                 pg.draw.circle(self.render.screen, pg.Color('white'), vertexes, 6)
-                
-    def draw(self):
-        self.screen_projection()
+

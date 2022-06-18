@@ -1,12 +1,11 @@
 # Import pygame and numpy library using
 # pip install pygame numpy 
 # ------------------------------
-import sys
-sys.path.append("..")
+
 import pygame as pg
-from Models.model_3d import * # Import from Models folder the model_3d.py
-from Utilities.camera_helper import * # Import from Utilities folder the camera_helper.py
-from Utilities.projection_helper import * # Import from Utilities folder the projection_helper.py
+from model_3d import * # Import from Models folder the model_3d.py
+from camera_helper import * # Import from Utilities folder the camera_helper.py
+from projection_helper import * # Import from Utilities folder the projection_helper.py
 
 
 # Create Class for WireframeVisualizer ("The app")
@@ -14,7 +13,7 @@ from Utilities.projection_helper import * # Import from Utilities folder the pro
 class WireframeVisualizer:
     # Define APP display resolutions
     width = 960
-    height = 600
+    height = 600 
     fps = 60
 
     def __init__(self):

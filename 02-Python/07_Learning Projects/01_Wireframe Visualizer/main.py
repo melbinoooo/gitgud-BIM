@@ -2,6 +2,7 @@
 # pip install pygame numpy 
 # ------------------------------
 import pygame as pg
+from .Models.model_3d import * # Import from Models folder the model_3d.py
 
 
 # Create Class for WireframeVisualizer ("The app")
@@ -19,6 +20,7 @@ class WireframeVisualizer:
         self.fps
         self.screen = pg.display.set_mode(self.res)
         self.clock = pg.time.Clock()
+        self.create_models() # Call the imported create_model instance.
         
     # Object for UI
     def draw(self):
@@ -42,6 +44,10 @@ class WireframeVisualizer:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     running = False
+    
+    # Create an instance for the Model3D
+    def create_models(self):
+        self.model = Model3D(self)
 
 
 # Main

@@ -47,3 +47,9 @@ class Model3D:
         
     def rotate_z(self, angle):
         self.vertexes = self.vertexes @ rotate_z(angle)
+        
+    def screen_projection(self):
+        vertexes = self.vertexes @ self.render.camera.camera_matrix()
+        vertexes = vertexes @ self.render.projection.projection_matrix
+        vertexes /= vertexes[:, -1].reshape(-1,1)
+        vertexes[(vertexes > 1) | (vertexes < -1)] = 0

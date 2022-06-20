@@ -1,11 +1,12 @@
-#
+# .self = "This"
 
 # --------------------------------------
 import pygame as pg
-from constants import *
 from model import *
 from camera import *
 from projection import *
+#
+from constants import *
 
 
 # READ MODEL FILE FROM:
@@ -17,6 +18,7 @@ os.chdir(r'02-Python\07_Learning Projects\01_Wireframe Visualizer')
 class WireframeVisualizer:
     def __init__(self):
         pg.init()
+        # LAUNCH APPLICATION
         # SET SCREEN RESOLUTION
         self.screen = pg.display.set_mode(RES)
         # SET FPS
@@ -25,6 +27,11 @@ class WireframeVisualizer:
         self.clock = pg.time.Clock()
         # INITIATE MODEL
         self.create_models()
+
+    def build_UI(self):
+        # BUILD UI
+        self.screen.fill(pg.Color('darkslategray'))
+        self.object.draw()
 
     def create_models(self):
         # 1 INITIATE THE POV
@@ -38,10 +45,12 @@ class WireframeVisualizer:
         
         
 
+
     def get_object_from_file(self, filename):
         vertex, faces = [], []
-        with open(filename) as f:
-            for line in f:
+        with open(filename) as file:
+            for line in file:
+                # .OBJ PARSER
                 if line.startswith('v '):
                     vertex.append([float(i) for i in line.split()[1:]] + [1])
                 elif line.startswith('f'):
@@ -49,9 +58,7 @@ class WireframeVisualizer:
                     faces.append([int(face_.split('/')[0]) - 1 for face_ in faces_])
         return Object3D(self, vertex, faces)
 
-    def build_UI(self):
-        self.screen.fill(pg.Color('darkslategray'))
-        self.object.draw()
+
 
     def run(self):
         while True:

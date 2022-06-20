@@ -18,7 +18,7 @@ class Model3D:
         self.translate([0.0001, 0.0001, 0.0001])
 
         self.font = pg.font.SysFont('Arial', 30, bold=True)
-        self.color_faces = [(pg.Color('orange'), face) for face in self.faces]
+        self.color_faces = [(pg.Color(C_GREEN), face) for face in self.faces]
         self.movement_flag, self.draw_vertices = True, False
         self.label = ''
 
@@ -63,13 +63,3 @@ class Model3D:
     def rotate_z(self, angle):
         self.vertices = self.vertices @ rotate_z(angle)
 
-
-class Axes(Model3D):
-    def __init__(self, render):
-        super().__init__(render)
-        self.vertices = np.array([(0, 0, 0, 1), (1, 0, 0, 1), (0, 1, 0, 1), (0, 0, 1, 1)])
-        self.faces = np.array([(0, 1), (0, 2), (0, 3)])
-        self.colors = [pg.Color('red'), pg.Color('green'), pg.Color('blue')]
-        self.color_faces = [(color, face) for color, face in zip(self.colors, self.faces)]
-        self.draw_vertices = False
-        self.label = 'XYZ'

@@ -2,7 +2,6 @@ import pygame as pg
 from matrix_model import *
 from constants import *
 
-near_plane = 0.1
 
 class Camera:
     def __init__(self, render, position):
@@ -32,6 +31,7 @@ class Camera:
             self.position += self.up * self.moving_speed
         if key[pg.K_e]:
             self.position -= self.up * self.moving_speed
+
 
         if key[pg.K_LEFT]:
             self.camera_yaw(-self.rotation_speed)

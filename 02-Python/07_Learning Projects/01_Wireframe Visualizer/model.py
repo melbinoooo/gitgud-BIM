@@ -22,7 +22,7 @@ class Object3D:
         self.movement_flag, self.draw_vertices = True, False
         self.label = ''
 
-    def draw(self):
+    def build(self):
         self.screen_projection()
         self.movement()
 

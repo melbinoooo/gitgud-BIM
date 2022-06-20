@@ -1,3 +1,2 @@
-if __name__ == '__main__':
-    # INITIALIZE THE RUN METHOD TO THE WireframeVisualizer CLASS
-    WireframeVisualizer().run()
+import os
+os.chdir(r'02-Python\07_Learning Projects\01_Wireframe Visualizer')

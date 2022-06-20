@@ -10,7 +10,7 @@ def any_func(arr, a, b):
     return np.any((arr == a) | (arr == b))
 
 
-class Object3D:
+class Model3D:
     def __init__(self, render, vertices='', faces=''):
         self.render = render
         self.vertices = np.array([np.array(v) for v in vertices])
@@ -24,11 +24,7 @@ class Object3D:
 
     def build(self):
         self.screen_projection()
-        self.movement()
 
-    def movement(self):
-        if self.movement_flag:
-            self.rotate_y(-(pg.time.get_ticks() % 0.005))
 
     def screen_projection(self):
         vertices = self.vertices @ self.render.camera.camera_matrix()
@@ -68,7 +64,7 @@ class Object3D:
         self.vertices = self.vertices @ rotate_z(angle)
 
 
-class Axes(Object3D):
+class Axes(Model3D):
     def __init__(self, render):
         super().__init__(render)
         self.vertices = np.array([(0, 0, 0, 1), (1, 0, 0, 1), (0, 1, 0, 1), (0, 0, 1, 1)])

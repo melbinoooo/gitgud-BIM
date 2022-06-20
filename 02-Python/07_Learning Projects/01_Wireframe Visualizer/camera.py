@@ -2,6 +2,8 @@ import pygame as pg
 from matrix_model import *
 from constants import *
 
+near_plane = 0.1
+
 class Camera:
     def __init__(self, render, position):
         self.render = render

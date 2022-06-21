@@ -49,7 +49,7 @@ class WireframeVisualizer:
         # 1 INITIATE THE POV
         self.camera = Camera(self, [-5, 6, -55])
         # 2 LOAD THE MODEL VERTICES
-        self.model = self.get_object_from_file('models/cat.obj')
+        self.model = self.get_object_from_file('models/Apartment_Building.obj')
         # 3 SET THE MODEL COORDINATE
         self.projection = Projection(self)
         # 4 THE MODEL VIEW ANGLE

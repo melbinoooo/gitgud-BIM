@@ -22,7 +22,7 @@ class Model3D:
         # COLORIZED EDGE LINES
         self.color_edges = [(pg.Color(C_GREEN), edge) for edge in self.edges]
         # 
-        self.draw_vertices = True
+        self.draw_vertices = False
 
     def build(self):
         self.screen_projection()

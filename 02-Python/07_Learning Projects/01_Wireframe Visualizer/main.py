@@ -12,7 +12,7 @@ from constants import *
 # READ MODEL FILE FROM:
 import os
 os.chdir(r'02-Python\07_Learning Projects\01_Wireframe Visualizer')
-
+wv_icon = pg.image.load('icon.png')
 
 
 class WireframeVisualizer:
@@ -20,6 +20,8 @@ class WireframeVisualizer:
         # INITIALIZE PYGAME
         pg.init()
         # APP LAUNCHER
+        # SET APP ICON
+        pg.display.set_icon(wv_icon)
         # SET APP TITLE
         pg.display.set_caption('Wireframe Visualizer')
         # SET APP SCREEN RESOLUTION

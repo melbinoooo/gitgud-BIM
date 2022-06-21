@@ -12,19 +12,19 @@ class Projection:
         TOP = math.tan(render.camera.v_fov / 2)
         BOTTOM = -TOP
 
-        m00 = 2 / (RIGHT - LEFT)
-        m11 = 2 / (TOP - BOTTOM)
-        m22 = (FAR + NEAR) / (FAR - NEAR)
-        m32 = -2 * NEAR * FAR / (FAR - NEAR)
+
+        mt0 = 2 / (RIGHT - LEFT)
+        mt1 = 2 / (TOP - BOTTOM)
+        mt2 = (FAR + NEAR) / (FAR - NEAR)
+        mt3 = -2 * NEAR * FAR / (FAR - NEAR)
         self.projection_matrix = np.array([
-            [m00, 0, 0, 0],
-            [0, m11, 0, 0],
-            [0, 0, m22, 1],
-            [0, 0, m32, 0]
+            [mt0, 0, 0, 0],
+            [0, mt1, 0, 0],
+            [0, 0, mt2, 1],
+            [0, 0, mt3, 0]
         ])
 
-        HW = H_WIDTH
-        HH =  H_HEIGHT
+
         self.to_screen_matrix = np.array([
             [HW, 0, 0, 0],
             [0, -HH, 0, 0],

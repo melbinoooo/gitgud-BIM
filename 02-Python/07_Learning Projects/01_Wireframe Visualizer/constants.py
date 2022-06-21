@@ -15,5 +15,9 @@ C_GRAY = 96, 96, 96
 C_GREEN = 0, 255, 0
 
 
+# SHORTCUTS
+HW = H_WIDTH
+HH =  H_HEIGHT
+
 
 

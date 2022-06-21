@@ -47,7 +47,7 @@ class Model3D:
         if self.draw_vertices:
             for vertex in vertices:
                 if not any_func(vertex, H_WIDTH, H_HEIGHT):
-                    pg.draw.circle(self.render.screen, pg.Color(C_WHITE), vertex, 2)
+                    pg.draw.circle(self.render.screen, pg.Color(C_WHITE), vertex, 1)
 
 
 

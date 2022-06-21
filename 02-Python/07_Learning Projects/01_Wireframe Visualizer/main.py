@@ -2,7 +2,7 @@
 
 # --------------------------------------
 import pygame as pg
-from model import *
+from utility_model import *
 from utility_camera import *
 from utility_projection import *
 #

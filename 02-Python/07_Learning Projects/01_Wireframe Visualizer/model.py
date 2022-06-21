@@ -9,18 +9,20 @@ from numba import njit
 def any_func(arr, a, b):
     return np.any((arr == a) | (arr == b))
 
-
+# MODEL CLASS
 class Model3D:
-    def __init__(self, render, vertices='', faces=''):
+    def __init__(self, render, vertices='', edges=''):
         self.render = render
+        # PARSER
+        # ARRAY ALL 'v' VERTICES FROM THE .OBJ MODEL FILE
         self.vertices = np.array([np.array(v) for v in vertices])
-        self.faces = np.array([np.array(face) for face in faces])
-        self.translate([0.0001, 0.0001, 0.0001])
+        # ARRAY ALL 'f' VERTICES FROM THE .OBJ MODEL FILE
+        self.edges = np.array([np.array(edge) for edge in edges])
 
-        self.font = pg.font.SysFont('Arial', 30, bold=True)
-        self.color_faces = [(pg.Color(C_GREEN), face) for face in self.faces]
-        self.movement_flag, self.draw_vertices = True, False
-        self.label = ''
+        # COLORIZED EDGE LINES
+        self.color_edges = [(pg.Color(C_GREEN), edge) for edge in self.edges]
+        # 
+        self.draw_vertices = True
 
     def build(self):
         self.screen_projection()
@@ -34,19 +36,20 @@ class Model3D:
         vertices = vertices @ self.render.projection.to_screen_matrix
         vertices = vertices[:, :2]
 
-        for index, color_face in enumerate(self.color_faces):
-            color, face = color_face
-            polygon = vertices[face]
+
+        for index, color_edge in enumerate(self.color_edges):
+            color, edge = color_edge
+            polygon = vertices[edge]
             if not any_func(polygon, H_WIDTH, H_HEIGHT):
                 pg.draw.polygon(self.render.screen, color, polygon, 1)
-                if self.label:
-                    text = self.font.render(self.label[index], True, pg.Color('white'))
-                    self.render.screen.blit(text, polygon[-1])
+
 
         if self.draw_vertices:
             for vertex in vertices:
                 if not any_func(vertex, H_WIDTH, H_HEIGHT):
-                    pg.draw.circle(self.render.screen, pg.Color('white'), vertex, 2)
+                    pg.draw.circle(self.render.screen, pg.Color(C_WHITE), vertex, 2)
+
+
 
     def translate(self, pos):
         self.vertices = self.vertices @ translate(pos)

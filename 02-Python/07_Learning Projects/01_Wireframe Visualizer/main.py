@@ -3,7 +3,7 @@
 # --------------------------------------
 import pygame as pg
 from model import *
-from camera import *
+from utility_camera import *
 from projection import *
 #
 from constants import *
@@ -31,16 +31,18 @@ class WireframeVisualizer:
 
 
     def get_object_from_file(self, filename):
-        vertex, faces = [], []
+        vertex, edges = [], []
         with open(filename) as file:
             for line in file:
                 # .OBJ PARSER
+                # ALL LINE STARTS WITH 'f' DETERMINES VERTICES VALUE
                 if line.startswith('v '):
                     vertex.append([float(i) for i in line.split()[1:]] + [1])
+                # ALL LINE STARTS WITH 'f' DETERMINES FACES VALUE
                 elif line.startswith('f'):
-                    faces_ = line.split()[1:]
-                    faces.append([int(face_.split('/')[0]) - 1 for face_ in faces_])
-        return Model3D(self, vertex, faces)
+                    edges_ = line.split()[1:]
+                    edges.append([int(face_.split('/')[0]) - 1 for face_ in edges_])
+        return Model3D(self, vertex, edges)
 
 
     def launch_model(self):

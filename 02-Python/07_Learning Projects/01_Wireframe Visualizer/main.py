@@ -4,7 +4,7 @@
 import pygame as pg
 from model import *
 from utility_camera import *
-from projection import *
+from utility_projection import *
 #
 from constants import *
 

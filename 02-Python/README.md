@@ -4,7 +4,7 @@ Category: gitgud-BIM-Python
 
 Date Created: May 7, 2022 10:22 PM
 
-Last Edited Time: June 12, 2022 10:25 AM
+Last Edited Time: June 24, 2022 10:25 PM
 
 Priority: Priority: High 🔥
 
@@ -64,7 +64,8 @@ Build a necessary foundation for Python Language to help prepare, construct and 
     - Constructors
     - Inheritance
 - [ ]  LEARNING PROJECTS
-    - Python Wireframe Visualizer (using libraries: Numpy & Pygame) 
+    - Wireframe Visualizer (using libraries: Numpy & Pygame) 
+    - Snake Game: Learning Collision
 
 <br>
 </br>

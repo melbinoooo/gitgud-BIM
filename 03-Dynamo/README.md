@@ -8,7 +8,7 @@ Last Edited Time: June 24, 2022 10:25 PM
 
 Priority: Priority: High 🔥
 
-Status: Completed
+Status: Work in Progress
 
 
 <br>
@@ -17,7 +17,7 @@ Status: Completed
 ---
 # The Idea:
 
-Build a necessary foundation for Python Language to help prepare, construct and initialize Python required BIM projects.
+Have a good foundation of Visual Programming through learning the ropes of Dynamo and intigrate Python with in.
 
 <br>
 </br>
@@ -32,40 +32,44 @@ Build a necessary foundation for Python Language to help prepare, construct and 
 
 # Targets:
 
-- [x]  INTRODUCTION TO PYTHON
-    - Variables and Literals
-    - Inpit and Output
-    - Type Conversion
-    - Operators
-- [x]  DECISION MAKING & LOOP
-    - Boolean Expression
-    - If...Else Statement
-    - While Loop
-    - For Loop
-    - Break and Continue
-    - Pass
-    - Control Flow
-- [x]  FUNCTIONS
-    - What is a function?
-    - Variable Scope and Lifetime
-    - Function Arguments
-    - Anonymous Function
-    - Recursion
-- [x]  COLLECTION DATA TYPES
+- [ ]  INTRODUCTION TO DYNAMO
+    - 
+- [ ]  PYTHON NODE BASICS
+    - 
+- [ ]  PYTHON INSIDE DYNAMO
+    - Variables
     - Lists
-    - Sets
-    - Dictionary
-- [x]  MODULES AND FILES
-    - What are Modules?
-    - What are Files?
-    - Directory
-- [x]  (OOP) - OBJECT ORITENTED PROGRAMMING
-    - Class and Objects
-    - Constructors
-    - Inheritance
-- [ ]  LEARNING PROJECTS
-    - Wireframe Visualizer (using libraries: Numpy & Pygame) 
-    - Snake Game: Learning Collision
+    - Conditionals
+    - Operators
+    - Loop & While Loop
+    - Break & Continue
+    - Nested Loop
+    - Dictionaries
+    - Try and Except
+    - Defining Functions
+- [ ]  DYNAMO LIBRARIES AND PYTHON MODULES
+    - Built-in Python Modules
+    - Extending Python Modules
+    - Creating a Custom Module
+- [ ]  IRONPYTHON
+    - 
+- [ ]  INTRODUCTION TO REVIT API
+    - Accessing Revit Nodes
+    - Importing Revit API
+    - Working with Revit API
+- [ ]  REVIT API
+    - Collecting Elements
+    - Creating a Collector
+    - Getting Revit Parameters
+    - Setting up Revit Parameters
+    - Creating a Line-Based Elements
+    - Elements Locations
+    - Adjusting Elements
+    - Creating a View
+    - View Bounding Boxes
+    - .Netframework and IronPython
+
+
 
 <br>
 </br>

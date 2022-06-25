@@ -34,7 +34,8 @@ Have a good foundation of Visual Programming through learning the ropes of Dynam
 
 - [ ]  INTRODUCTION TO DYNAMO
     - 
-- [ ]  PYTHON NODE BASICS
+- [ ]  DYNAMO NODE BASICS
+    - Operators
     - 
 - [ ]  PYTHON INSIDE DYNAMO
     - Variables

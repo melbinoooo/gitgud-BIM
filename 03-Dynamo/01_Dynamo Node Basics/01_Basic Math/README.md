@@ -1,9 +1,9 @@
-Basic Operators
+Basic Math
 
 ---
 # The Idea:
 
-Have a good foundation of Visual Programming through learning the ropes of Dynamo and intigrate Python with in.
+Understand how to use basic math operator in dynamo.
 
 <br>
 </br>

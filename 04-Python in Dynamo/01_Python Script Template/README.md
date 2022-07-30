@@ -3,7 +3,7 @@ Python Script Template (Dynamo Node)
 ---
 
 # --------------------------------------------
-# Load the Python Standard Libraries
+#Load the Python Standard Libraries
 <br>
 </br>
 import sys

@@ -56,7 +56,7 @@ Python Script Template (Dynamo Node)
 <br>
 </br>
 
--  	[ ]CONSTANTS VARIABLE
+-  [ ]CONSTANTS VARIABLE
 -	[A] Suggest to run the program only to the live (current) document
    - doc = DocumentManager.Instance.CurrentDBDocument
 

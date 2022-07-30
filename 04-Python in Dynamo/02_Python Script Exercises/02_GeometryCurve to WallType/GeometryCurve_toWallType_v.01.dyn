@@ -1,0 +1,350 @@
+{
+  "Uuid": "0cd2d540-2453-4a68-aff2-260bab64a8e2",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "GeometryCurve_toWallType_v.01",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# --------------------------------------------\r\n# Load the Python Standard Libraries\r\nimport sys\r\n# --------------------------------------------\r\n# Import Design Script\r\n# Converts other languages into Python Syntax\r\n# clr = Common Language Runtime\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n# --------------------------------------------\r\n# This library containts Dynamo to Revit Elements\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n# --------------------------------------------\r\n# This library translates Dynamo Objects into Revit Object\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\n# --------------------------------------------\r\n# Import RevitServices Transactions\r\n# This library tells Dynamo to \"stop-running\" once the operation is completed\r\n# e.g. \"History\"\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n# --------------------------------------------\r\n# Import RevitAPI Library\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Architecture import *\r\n# --------------------------------------------\r\n\r\n\r\n# Constants\r\n# Below suggest that to run the program only to the live (current) document \r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# ----------------------------\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\ndataEnteringNode = IN\r\n\r\n# # Variables\r\n# ## = UnwrapElement(IN[0]) This translates dynamo Object into Revit object\r\n# line = UnwrapElement(IN[0])\r\nlines = UnwrapElement(IN[0]) \r\n\r\n\r\nwallType = UnwrapElement(IN[1])\r\nwallTypeID = wallType.Id\r\n\r\n\r\nlevel = UnwrapElement(IN[2])\r\nlevelId = level.Id\r\n\r\nheight = UnwrapElement(IN[3])\r\nheightMM = height/304.8\r\n\r\n\r\noffset = 0\r\n\r\nflip = False\r\n\r\n\r\n\r\nresult = []\r\n\r\n# Functions\r\ndef MakeWall(geoCurve):\r\n\tnewWall = Wall.Create(doc, geoCurve, wallTypeID, levelId, heightMM, offset, flip, False)\r\n\treturn newWall\r\n\r\n\r\n\r\n\r\n# This is the runner\r\nwith Transaction(doc, \"insert transaction name\") as transaction:\r\n\ttransaction.Start()\r\n\t# --------------------------------------------------\r\n\tfor line in lines:\r\n\t\tgeoCurve = line.GeometryCurve\r\n\t\tif geoCurve.Length > 20: \r\n\t\t\tnewWall = MakeWall(geoCurve)\r\n\t\t\tresult.append(newWall.Id)\r\n\t# --------------------------------------------------\r\n\ttransaction.Commit()\r\n\r\n\r\n# Assign your output to the OUT variable.\r\n# Call the Function\r\n# OUT = newWall\r\nOUT = result",
+      "VariableInputPorts": true,
+      "Id": "39fbba34d03b40a693319085498ef9ea",
+      "Inputs": [
+        {
+          "Id": "aac79a8134bf48fdaa2befc7ff983475",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fbce21e22be04c028e9acc7e5628d676",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b3983da409a149829df786de5857b503",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "15558fafc7ba4c1fa5e47f6d86aaf47a",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "84142dec16b944bea0eabc402aa8af5f",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 1,
+      "SelectedString": "Level 1",
+      "NodeType": "ExtensionNode",
+      "Id": "689abe2928174838ae702c0eaf7f6814",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "995c5300fe3944b59ceb92115552cccb",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "7875d389-6ab5-44f6-a324-a281719c3ef3-0004b72e",
+        "7875d389-6ab5-44f6-a324-a281719c3ef3-0004b743",
+        "7875d389-6ab5-44f6-a324-a281719c3ef3-0004b760",
+        "7875d389-6ab5-44f6-a324-a281719c3ef3-0004b7e6"
+      ],
+      "Id": "af85149088be429d9f4a837bbb51a21f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6eba4d2218cc483c93ffe1f869c6a16d",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "61ec1137bf3a4c2f909db24cf325aa58",
+      "Inputs": [
+        {
+          "Id": "886e231ff4d34ac0a061b85b31f5b5ff",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f348c58b96e435f85d95bf16b5fcfd4",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Level.Elevation",
+      "Id": "1bb1186a15804bfcafca2568d94ad806",
+      "Inputs": [
+        {
+          "Id": "10b0f51ab6fd460aa3f979e51a5a8158",
+          "Name": "level",
+          "Description": "Revit.Elements.Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "88bfb76d9bc6401c8d1391aadfe3e877",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The elevation of the level above ground level\n\nLevel.Elevation: double"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallTypes, DSRevitNodesUI",
+      "SelectedIndex": 6,
+      "SelectedString": "Wall Test Def",
+      "NodeType": "ExtensionNode",
+      "Id": "7702a573a5514040ab4e7859aeb8be13",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "57b3a5c8b5e54af58bf83f3894ff9758",
+          "Name": "Wall Type",
+          "Description": "The selected Wall Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All wall types available in the document."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "SelectedString": "Level 0",
+      "NodeType": "ExtensionNode",
+      "Id": "b56aebd2e885433fa22cd91b8e1b14b5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5259d55370cc4363b0bcf510c2c1cd99",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "84142dec16b944bea0eabc402aa8af5f",
+      "End": "886e231ff4d34ac0a061b85b31f5b5ff",
+      "Id": "932e80f93d734061a13972b71a3432b4"
+    },
+    {
+      "Start": "995c5300fe3944b59ceb92115552cccb",
+      "End": "10b0f51ab6fd460aa3f979e51a5a8158",
+      "Id": "faeead4c709144a195c815bc46ca600d"
+    },
+    {
+      "Start": "6eba4d2218cc483c93ffe1f869c6a16d",
+      "End": "aac79a8134bf48fdaa2befc7ff983475",
+      "Id": "7deb4318decb468b92f540a9d59785f1"
+    },
+    {
+      "Start": "88bfb76d9bc6401c8d1391aadfe3e877",
+      "End": "15558fafc7ba4c1fa5e47f6d86aaf47a",
+      "Id": "fd7da57112d74b778aa5e8ecb17be939"
+    },
+    {
+      "Start": "57b3a5c8b5e54af58bf83f3894ff9758",
+      "End": "fbce21e22be04c028e9acc7e5628d676",
+      "Id": "7d39e52aad4c4e67a39d047f094b2277"
+    },
+    {
+      "Start": "5259d55370cc4363b0bcf510c2c1cd99",
+      "End": "b3983da409a149829df786de5857b503",
+      "Id": "99728a954d9d468282822a24dc0e0ec5"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "39fbba34d03b40a693319085498ef9ea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 679.33709645964518,
+        "Y": 153.92149113275747
+      },
+      {
+        "Id": "689abe2928174838ae702c0eaf7f6814",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 203.00185676483363,
+        "Y": 308.44369300570565
+      },
+      {
+        "Id": "af85149088be429d9f4a837bbb51a21f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Select Model Elements",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 296.08750071159943,
+        "Y": -69.160816847033857
+      },
+      {
+        "Id": "61ec1137bf3a4c2f909db24cf325aa58",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 877.87290425858521,
+        "Y": 153.02450181005383
+      },
+      {
+        "Id": "1bb1186a15804bfcafca2568d94ad806",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Level.Elevation",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 398.763954356884,
+        "Y": 405.66806092843962
+      },
+      {
+        "Id": "7702a573a5514040ab4e7859aeb8be13",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Wall Types",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 191.43852002843369,
+        "Y": 134.22174326612952
+      },
+      {
+        "Id": "b56aebd2e885433fa22cd91b8e1b14b5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Levels",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 407.34190312907037,
+        "Y": 237.56928806909679
+      }
+    ],
+    "Annotations": [],
+    "X": -201.96904223247139,
+    "Y": 101.53031121874227,
+    "Zoom": 0.74945813949141127
+  }
+}

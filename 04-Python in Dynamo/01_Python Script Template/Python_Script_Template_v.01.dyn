@@ -1,0 +1,95 @@
+{
+  "Uuid": "0cd2d540-2453-4a68-aff2-260bab64a8e2",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Python_Script_Template_v.01",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# --------------------------------------------\r\n# Load the Python Standard Libraries\r\nimport sys\r\n# --------------------------------------------\r\n# Import Design Script\r\n# Converts other languages into Python Syntax\r\n# clr = Common Language Runtime\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n# --------------------------------------------\r\n# This library containts Dynamo to Revit Elements\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n# --------------------------------------------\r\n# This library translates Dynamo Objects into Revit Object\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\n# --------------------------------------------\r\n# Import RevitServices Transactions\r\n# This library tells Dynamo to \"stop-running\" once the operation is completed\r\n# e.g. \"History\"\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n# --------------------------------------------\r\n# Import RevitAPI Library\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Architecture import *\r\n# --------------------------------------------\r\n\r\n\r\n# Constants\r\n# Below suggest that to run the program only to the live (current) document \r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# ----------------------------\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\ndataEnteringNode = IN\r\n\r\n# # Variables\r\n# ## = UnwrapElement(IN[0]) This translates dynamo Object into Revit object\r\n# line = UnwrapElement(IN[0])\r\nline = UnwrapElement(IN[0]) \r\n\r\ngeoCurve = line.GeometryCurve\r\n\r\nlevel = UnwrapElement(IN[1])\r\nlevelId = level.Id\r\n\r\n\r\n\r\n# result = []\r\n\r\n# This is the runner\r\nwith Transaction(doc, \"insert transaction name\") as transaction:\r\n\ttransaction.Start()\r\n\t# --------------------------------------------------\r\n\t# Function\r\n\t# Wall.Create(var1, var2, var3, var4) are defined on RevitAPI docs\r\n\tnewWall = Wall.Create(doc, geoCurve, levelId, False)\r\n\t# --------------------------------------------------\r\n\ttransaction.Commit()\r\n\r\n\r\n# Assign your output to the OUT variable.\r\n# Call the Function\r\n# OUT = newWall\r\nOUT = newWall",
+      "VariableInputPorts": true,
+      "Id": "39fbba34d03b40a693319085498ef9ea",
+      "Inputs": [
+        {
+          "Id": "aac79a8134bf48fdaa2befc7ff983475",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fbce21e22be04c028e9acc7e5628d676",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "84142dec16b944bea0eabc402aa8af5f",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "39fbba34d03b40a693319085498ef9ea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 289.830114871298,
+        "Y": 148.01066201918314
+      }
+    ],
+    "Annotations": [],
+    "X": -198.52128671705105,
+    "Y": -10.578929440924298,
+    "Zoom": 1.4103679023699152
+  }
+}

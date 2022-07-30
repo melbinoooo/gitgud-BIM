@@ -1,0 +1,93 @@
+Python Script Template (Dynamo Node)
+
+---
+
+# --------------------------------------------
+# Load the Python Standard Libraries
+import sys
+# --------------------------------------------
+# Import Design Script
+# Converts other languages into Python Syntax
+# clr = Common Language Runtime
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+# --------------------------------------------
+# This library containts Dynamo to Revit Elements
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+# --------------------------------------------
+# This library translates Dynamo Objects into Revit Object
+clr.ImportExtensions(Revit.GeometryConversion)
+# --------------------------------------------
+# Import RevitServices Transactions
+# This library tells Dynamo to "stop-running" once the operation is completed
+# e.g. "History"
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+# --------------------------------------------
+# Import RevitAPI Library
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+from Autodesk.Revit.DB.Architecture import *
+# --------------------------------------------
+
+
+# Constants
+# Below suggest that to run the program only to the live (current) document 
+doc = DocumentManager.Instance.CurrentDBDocument
+
+# ----------------------------
+
+# The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+# # Variables
+# ## = UnwrapElement(IN[0]) This translates dynamo Object into Revit object
+# line = UnwrapElement(IN[0])
+line = UnwrapElement(IN[0]) 
+
+geoCurve = line.GeometryCurve
+
+level = UnwrapElement(IN[1])
+levelId = level.Id
+
+
+
+# This is the runner
+with Transaction(doc, "insert transaction name") as transaction:
+	transaction.Start()
+	# --------------------------------------------------
+	# Function
+	# Wall.Create(var1, var2, var3, var4) are defined on RevitAPI docs
+	newWall = Wall.Create(doc, geoCurve, levelId, False)
+	# --------------------------------------------------
+	transaction.Commit()
+
+
+# Assign your output to the OUT variable.
+# Call the Function
+# OUT = newWall
+OUT = newWall
+
+<br>
+</br>
+
+
+<br>
+</br>
+<br>
+</br>
+<p>
+  <a href="https://www.linkedin.com/in/binoootuliao/" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
+  </a> &nbsp; 
+  <a href="https://github.com/melbinoooo" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/tskMh.png" alt="github"> Github
+  </a>
+</p>
+
